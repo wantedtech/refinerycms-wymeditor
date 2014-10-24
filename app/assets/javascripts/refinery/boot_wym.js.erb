@@ -1,3 +1,9 @@
+/*
+ *= depend_on_asset "wymeditor/skins/refinery/wymiframe.css"
+ *= depend_on_asset "refinery/formatting.css"
+ *= depend_on_asset "refinery/theme.css"
+ */
+
 WYMeditor.onload_functions = [];
 var wymeditor_inputs = [];
 var wymeditors_loaded = 0;
@@ -229,9 +235,9 @@ WYMeditor.editor.prototype.loadIframe = function(iframe) {
     doc.close();
 
     var doc_head = doc.head || $(doc).find('head').get(0);
-    $("<link href='<%= Rails.application.config.assets.prefix + '/wymeditor/skins/refinery/wymiframe.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
-    $("<link href='<%= Rails.application.config.assets.prefix + '/refinery/formatting.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
-    $("<link href='<%= Rails.application.config.assets.prefix + '/refinery/theme.css' %>' media='all' rel='stylesheet' />").appendTo(doc_head);
+    $("<link href='<%= image_path('wymeditor/skins/refinery/wymiframe.css') %>' media='all' rel='stylesheet' />").appendTo(doc_head);
+    $("<link href='<%= image_path('refinery/formatting.css') %>' media='all' rel='stylesheet' />").appendTo(doc_head);
+    $("<link href='<%= image_path('refinery/theme.css') %>' media='all' rel='stylesheet' />").appendTo(doc_head);
   }
   if ((id_of_editor = wym._element.parent().attr('id')) != null) {
     $(doc.body).addClass(id_of_editor);
